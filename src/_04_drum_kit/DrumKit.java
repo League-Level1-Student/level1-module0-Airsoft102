@@ -4,7 +4,9 @@ package _04_drum_kit;
  *    Level 1
  */
 
+
 import java.applet.AudioClip;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -25,35 +27,36 @@ public class DrumKit implements MouseListener {
 	public void run() throws MalformedURLException {
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
-
+JFrame jframe = new JFrame();
 		// 2. Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
-
+jframe.setVisible(true);
+jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 3. Set the size of the frame
-
+jframe.setPreferredSize(new Dimension(4000,4000));
 		// 4. Set the title of the frame
-
+jframe.setTitle("Bananananananana");
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
-
+JPanel jpanel=new JPanel();
 		// 6. Add the panel to the frame. (The panel is invisible.)
-
+jframe.add(jpanel);
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
 
 		// 8. Put the name of your image file in a String variable.
-
+String s = "snare.jpg";
 		// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
-
+drumLabelWithImage = createLabelImage(s);
 		// 10. Add the image to the panel
-
+jpanel.add(drumLabelWithImage);
 		// 11. Set the layout of the panel to "new GridLayout()"
-
+jpanel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
-
+jframe.pack();
 		// 13. add this mouse listener to drumLabelWithImage
-
+drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
 
@@ -62,7 +65,7 @@ public class DrumKit implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-
+System.out.println("mouse clicked");
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
@@ -75,7 +78,7 @@ public class DrumKit implements MouseListener {
 
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
-
+playSound("drum.wav");
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
