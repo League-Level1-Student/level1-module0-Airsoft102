@@ -69,12 +69,20 @@ frame.setTitle("Demanding Buttons");
 
 		/* If the buttonPressed was the leftButton.... */
 		// Set the text of the rightButton to "No, click Me!"
+		if (buttonPressed==leftButton) {
+			rightButton.setText("no, Click ME");
+			rightButton.setPreferredSize(BIG);
+		}
 		// Set the PREFERRED size of the rightButton to BIG
+		
 		// Set the text of the leftButton to "Click Me!"
 		// Set the PREFERRED size of the leftButton to SMALL
-
+leftButton.setPreferredSize(SMALL);
 		/* If the buttonPressed was the rightButton, do the opposite. */
-
+if (buttonPressed==rightButton) {
+	leftButton.setText("no, Click ME");
+	leftButton.setPreferredSize(BIG);
+}
 		frame.pack();
 	}
 }
